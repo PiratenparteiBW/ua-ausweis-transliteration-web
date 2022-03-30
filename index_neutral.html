@@ -63,7 +63,6 @@
 
                         function transliterate() {
                                     inputString = inputField.value;
-                                    console.log(inputString);
                                     outputString = "";
                                     for (i = 0; i < inputString.length; i++) {
                                                 if (inputString.charCodeAt(i) in translit_table) {
@@ -72,7 +71,6 @@
                                                                     outputString += inputString.charAt(i);
                                                                 }
                                             }
-                                    console.log(outputString);
                                     outputField.value = outputString;
                                 }
 
@@ -121,7 +119,6 @@
                         function initialize() {
                                     inputField.addEventListener('input', () => transliterate());
                                     initScreenKeyboard();
-                                    console.log('Initialized');
                                 }
                     })();
         </script>
