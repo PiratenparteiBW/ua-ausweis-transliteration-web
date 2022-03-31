@@ -1,150 +1,278 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Transliteration ukrainischer Ausweisdokumente</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <script src=js/jquery.slim.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="css/index.css">
-        <style>
+<head>
+    <meta charset="utf-8">
+    <title>Transliteration ukrainischer Ausweisdokumente</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src=js/jquery.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
         .content {
             width: 80%;
             margin: 0px auto;
             margin-top: 80px;
         }
-        </style>
-    </head>
-    <body style="background-color: #FFD700;">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #0057B8;">
-            <a class="navbar-brand" href="#" style="line-height: 50px; margin-left: 25px;">
-                <img src="img/Lesser_Coat_of_Arms_of_Ukraine.png" class="d-inline-block align-top" alt="Piratenpartei Baden-Württemberg Logo" height="50px">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
-                                                                                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="navbar-nav ml-2 mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Transliteration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://uatrans.piratenpartei-bw.de/">Projektseite</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Datenschutz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Impressum</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    </style>
+</head>
+<body style="background-color: #FFD700;">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #0057B8;">
+    <a class="navbar-brand" href="#" style="line-height: 50px; margin-left: 25px;">
+        <img src="img/Lesser_Coat_of_Arms_of_Ukraine.png" class="d-inline-block align-top"
+             alt="Piratenpartei Baden-Württemberg Logo" height="50px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ml-2 mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Transliteration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://uatrans.piratenpartei-bw.de/">Projektseite</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Datenschutz</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Impressum</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-        <div class="content" style="background-color: #FFD700;">
+<div class="content" style="background-color: #FFD700;">
 
-            <h1>Werkzeug zur Transliteration von ukrainisch-kyrillischer Schrift</h1>
+    <h1>Werkzeug zur Transliteration von ukrainisch-kyrillischer Schrift</h1>
 
-            <p>Über die eingeblendete Tastatur können kyrillische Schriftzeichen eingegeben werden, welche nach dem Standard für ukrainische Ausweisdokumente von 2007 in lateinische Schrift übersetzt werden.</p>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Eingabe (kyrillisch)</span>
-                </div>
-                <input type="text" class="form-control input" id="input" aria-label="Eingabe (kyrillisch)">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Ausgabe (lateinisch)</span>
-                </div>
-                <input type="text" disabled class="form-control" id="output" aria-label="Ausgabe (latainisch)">
-            </div>
-
-            <div class="simple-keyboard">
-
-            </div>
+    <p>Über die eingeblendete Tastatur können kyrillische Schriftzeichen eingegeben werden, welche nach dem Standard für
+        ukrainische Ausweisdokumente von 2007 in lateinische Schrift übersetzt werden.</p>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Eingabe (kyrillisch)</span>
         </div>
-        <script src="js/index.js"></script>
-        <script>
-            (function () {
-                        'use strict';
+        <input type="text" class="form-control input" id="input" aria-label="Eingabe (kyrillisch)">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ausgabe (lateinisch)</span>
+        </div>
+        <input type="text" disabled class="form-control" id="output" aria-label="Ausgabe (latainisch)">
+    </div>
 
-                        const translit_table = {1072: 'a', 1073: 'b', 1074: 'v', 1075: 'g', 1169: 'g', 1076: 'd', 1077: 'e', 1108: 'ie', 1078: 'zh', 1079: 'z', 1080: 'y', 1110: 'i', 1111: 'i', 1081: 'i', 1082: 'k', 1083: 'l', 1084: 'm', 1085: 'n', 1086: 'o', 1087: 'p', 1088: 'r', 1089: 's', 1090: 't', 1091: 'u', 1092: 'f', 1093: 'kh', 1094: 'ts', 1095: 'ch', 1096: 'sh', 1097: 'shch', 1100: '', 1102: 'iu', 1103: 'ia', 1040: 'A', 1041: 'B', 1042: 'V', 1043: 'G', 1168: 'G', 1044: 'D', 1045: 'E', 1028: 'Ie', 1046: 'Zh', 1047: 'Z', 1048: 'Y', 1030: 'I', 1031: 'I', 1049: 'I', 1050: 'K', 1051: 'L', 1052: 'M', 1053: 'N', 1054: 'O', 1055: 'P', 1056: 'R', 1057: 'S', 1058: 'T', 1059: 'U', 1060: 'F', 1061: 'Kh', 1062: 'Ts', 1063: 'Ch', 1064: 'Sh', 1065: 'Shch', 1068: '', 1070: 'Iu', 1071: 'Ia'};
+    <div class="simple-keyboard">
 
-                        let i;
-                        let inputString;
-                        let outputString;
+    </div>
+</div>
+<script src="js/index.js"></script>
+<script>
+    (function () {
+        'use strict';
 
-                        let inputField = document.getElementById('input');
-                        let outputField = document.getElementById('output');
+        const translit_table = {
+            1072: 'a',
+            1073: 'b',
+            1074: 'v',
+            1075: 'g',
+            1169: 'g',
+            1076: 'd',
+            1077: 'e',
+            1108: 'ie',
+            1078: 'zh',
+            1079: 'z',
+            1080: 'y',
+            1110: 'i',
+            1111: 'i',
+            1081: 'i',
+            1082: 'k',
+            1083: 'l',
+            1084: 'm',
+            1085: 'n',
+            1086: 'o',
+            1087: 'p',
+            1088: 'r',
+            1089: 's',
+            1090: 't',
+            1091: 'u',
+            1092: 'f',
+            1093: 'kh',
+            1094: 'ts',
+            1095: 'ch',
+            1096: 'sh',
+            1097: 'shch',
+            1100: '',
+            1102: 'iu',
+            1103: 'ia',
+            1040: 'A',
+            1041: 'B',
+            1042: 'V',
+            1043: 'G',
+            1168: 'G',
+            1044: 'D',
+            1045: 'E',
+            1028: 'Ie',
+            1046: 'Zh',
+            1047: 'Z',
+            1048: 'Y',
+            1030: 'I',
+            1031: 'I',
+            1049: 'I',
+            1050: 'K',
+            1051: 'L',
+            1052: 'M',
+            1053: 'N',
+            1054: 'O',
+            1055: 'P',
+            1056: 'R',
+            1057: 'S',
+            1058: 'T',
+            1059: 'U',
+            1060: 'F',
+            1061: 'Kh',
+            1062: 'Ts',
+            1063: 'Ch',
+            1064: 'Sh',
+            1065: 'Shch',
+            1068: '',
+            1070: 'Iu',
+            1071: 'Ia',
+        };
 
-                        document.addEventListener('DOMContentLoaded', initialize);
+        const beginning_translit_table = {
+            1108: 'ye',
+            1111: 'yi',
+            1081: 'y',
+            1102: 'yu',
+            1103: 'ya',
+            1028: 'Ye',
+            1031: 'Yi',
+            1049: 'Y',
+            1070: 'Yu',
+            1071: 'YA',
+        }
 
-                        const ukrainian={default:[" й ц у к е н г ш щ з х ї ґ {bksp}"," ф і в а п р о л д ж є ","{shift} я ч с м и т ь б ю {shift}","{space}"],shift:[" Й Ц У К Е Н Г Ш Щ З Х Ї Ґ {bksp}"," Ф І В А П Р О Л Д Ж Є ","{shift} Я Ч С М И Т Ь Б Ю {shift}","{space}"]};
+        let i;
+        let inputLetterCode;
 
-                        function transliterate() {
-                                    inputString = inputField.value;
-                                    outputString = "";
-                                    for (i = 0; i < inputString.length; i++) {
-                                                if (inputString.charCodeAt(i) in translit_table) {
-                                                            outputString += translit_table[inputString.charCodeAt(i)]
-                                                        } else {
-                                                                    outputString += inputString.charAt(i);
-                                                                }
-                                            }
-                                    outputField.value = outputString;
-                                }
+        let inputCursorPositionStart;
+        let inputCursorPositionEnd;
 
-                        function initScreenKeyboard() {
-                                    const Keyboard = window.SimpleKeyboard.default;
+        let inputString;
+        let outputString;
 
-                                    const myKeyboard = new Keyboard({
-                                                onChange: input => onChange(input),
-                                                onKeyPress: input => onKeyPress(input),
-                                                layout: ukrainian,
-                                                display: {
-                                                            '{bksp}': 'Löschen',
-                                                            '{shift}': 'Shift',
-                                                            '{space}': 'Leertaste'
-                                                        }
-                                            });
+        let inputField = document.getElementById('input');
+        let outputField = document.getElementById('output');
 
-                                    function onChange(input) {
-                                                inputField.value += input;
-                                                myKeyboard.clearInput();
-                                                transliterate();
-                                            }
+        document.addEventListener('DOMContentLoaded', initialize);
 
-                                    function onKeyPress(button) {
-                                                /**
-                                                * If you want to handle the shift and caps lock buttons
-                                                */
-                                                if (button === "{shift}") {
-                                                    handleShift();
-                                                }
-                                                if (button === "{bksp}") {
-                                                    inputField.value = inputField.value.slice(0, -1);
-                                                    transliterate();
-                                                }
-                                            }
-                                    function handleShift() {
-                                                let currentLayout = myKeyboard.options.layoutName;
-                                                let shiftToggle = currentLayout === "default" ? "shift" : "default";
+        const ukrainian = {
+            default: [" й ц у к е н г ш щ з х ї ґ {bksp}", " ф і в а п р о л д ж є ", "{shift} я ч с м и т ь б ю {shift}", "{space}"],
+            shift: [" Й Ц У К Е Н Г Ш Щ З Х Ї Ґ {bksp}", " Ф І В А П Р О Л Д Ж Є ", "{shift} Я Ч С М И Т Ь Б Ю {shift}", "{space}"]
+        };
 
-                                                myKeyboard.setOptions({
-                                                            layoutName: shiftToggle
-                                                        });
-                                            }
-                                }
+        function transliterate() {
+            inputString = inputField.value;
+            outputString = "";
+            for (i = 0; i < inputString.length; i++) {
+                inputLetterCode = inputString.charCodeAt(i);
+                if (inputLetterCode in translit_table) {
+                    if (isBeginOfWord(inputString, i) && inputLetterCode in beginning_translit_table) {
+                        outputString += beginning_translit_table[inputLetterCode]
+                    } else {
+                        outputString += translit_table[inputLetterCode]
+                    }
+                } else {
+                    outputString += inputString.charAt(i);
+                }
+            }
+            outputField.value = outputString;
+        }
 
-                        function initialize() {
-                                    inputField.addEventListener('input', () => transliterate());
-                                    initScreenKeyboard();
-                                }
-                    })();
-        </script>
-    </body>
+        function isBeginOfWord(str, pos) {
+            return pos === 0 || str.charCodeAt(pos - 1) === 32
+        }
+
+        function inputFieldConvenience(was_del = false) {
+            if (was_del) {
+                inputField.selectionStart = inputCursorPositionStart - 1;
+                inputField.selectionEnd = inputCursorPositionStart - 1;
+            } else {
+                inputField.selectionStart = inputCursorPositionStart + 1;
+                inputField.selectionEnd = inputCursorPositionStart + 1;
+            }
+            window.setTimeout(() => inputField.focus(), 50);
+        }
+
+        function initScreenKeyboard() {
+            const Keyboard = window.SimpleKeyboard.default;
+
+            const myKeyboard = new Keyboard({
+                onChange: input => onChange(input),
+                onKeyPress: input => onKeyPress(input),
+                layout: ukrainian,
+                display: {
+                    '{bksp}': 'Löschen',
+                    '{shift}': 'Shift',
+                    '{space}': 'Leertaste'
+                }
+            });
+
+            function onChange(input) {
+                inputCursorPositionStart = inputField.selectionStart;
+                inputCursorPositionEnd = inputField.selectionEnd;
+
+                inputField.value = [inputField.value.slice(0, inputCursorPositionStart), input, inputField.value.slice(inputCursorPositionEnd)].join('');
+
+                myKeyboard.clearInput();
+                transliterate();
+                inputFieldConvenience();
+            }
+
+            function onKeyPress(button) {
+                /**
+                 * If you want to handle the shift and caps lock buttons
+                 */
+                if (button === "{shift}") {
+                    handleShift();
+                }
+                if (button === "{bksp}") {
+                    inputCursorPositionStart = inputField.selectionStart;
+                    inputCursorPositionEnd = inputField.selectionEnd;
+                    // Check if pointer or selection
+                    if (inputCursorPositionStart === inputCursorPositionEnd) {
+                        inputField.value = [inputField.value.slice(0, inputCursorPositionStart - 1), inputField.value.slice(inputCursorPositionEnd)].join('');
+                    } else {
+                        inputField.value = [inputField.value.slice(0, inputCursorPositionStart), inputField.value.slice(inputCursorPositionEnd)].join('');
+                        inputField.selectionStart = inputCursorPositionStart += 1;
+                    }
+
+                    transliterate();
+                    inputFieldConvenience(true);
+                }
+                myKeyboard.clearInput();
+            }
+
+            function handleShift() {
+                let currentLayout = myKeyboard.options.layoutName;
+                let shiftToggle = currentLayout === "default" ? "shift" : "default";
+
+                myKeyboard.setOptions({
+                    layoutName: shiftToggle
+                });
+            }
+        }
+
+        function initialize() {
+            inputField.addEventListener('input', () => transliterate());
+
+            initScreenKeyboard();
+        }
+    })();
+</script>
+</body>
 </html>
